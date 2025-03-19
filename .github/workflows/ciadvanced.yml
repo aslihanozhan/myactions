@@ -16,7 +16,7 @@ jobs:                                      # Defines a list of tasks
 
     steps:                                     # Inside of steps , ecery line executes a command in CI/CD pipeline 
       - name: Set Environment Variables
-        run: echo "MY_PASS=${{ secrets.MY_PASS }}" >> $GITHUB_ENV
+        run: echo "MY_PASS=${{ secrets.MY_PASS }}" >> "$GITHUB_ENV"
 
       - name: Checkout Repository
         uses: actions/checkout@v3               # Download your latest repository to  machine firstly 
