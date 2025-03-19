@@ -18,21 +18,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # **For Node.js (JavaScript/TypeScript Projects)**
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install Dependencies (Node.js)
-        run: npm install
-
-      - name: Run Tests (Node.js)
-        run: npm test
-
-      - name: Build Application (Node.js)
-        run: npm run build
-
       # **For Python Projects**
       - name: Set up Python
         uses: actions/setup-python@v4
