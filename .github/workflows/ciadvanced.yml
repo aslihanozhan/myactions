@@ -33,9 +33,4 @@ jobs:
       - name: Build Application (Python)
         run: python setup.py build
 
-      # **Upload Build Artifacts (Optional)**
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: application-build
-          path: dist/
+
