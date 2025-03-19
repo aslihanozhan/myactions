@@ -18,6 +18,9 @@ jobs:                                      # Defines a list of tasks
       - name: Set Environment Variables
         run: echo "MY_PASS=${{ secrets.MY_PASS }}" >> "$GITHUB_ENV"
 
+      - name: Notify GitHub on Completion            #Send a GitHub Notification
+        run: echo " CI/CD Pipeline completed successfully!"
+
       - name: Checkout Repository
         uses: actions/checkout@v3               # Download your latest repository to  machine firstly 
 
