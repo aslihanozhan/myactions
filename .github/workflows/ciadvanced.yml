@@ -34,7 +34,7 @@ jobs:                                      # Defines a list of tasks
           python-version: '3.9'
 
       - name: Install Dependencies                     # Install required packages 
-        run: pip install 
+        run: pip install -r requirements.txt
 
       - name: Run Tests                                # testing the code 
         run: pytest
