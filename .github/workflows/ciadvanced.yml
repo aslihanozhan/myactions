@@ -21,8 +21,8 @@ jobs:                                      # Defines a list of tasks
       - name: Notify GitHub on Completion            #Send a GitHub Notification
         run: echo " CI/CD Pipeline completed successfully!"
       
-      - name: Change to Repository Directory       #the workflow runs inside the correct directory where package.json is located.
-        run: cd $GITHUB_WORKSPACE
+      #- name: Change to Repository Directory       #the workflow runs inside the correct directory where package.json is located.
+      #  run: cd $GITHUB_WORKSPACE
 
       - name: Checkout Repository
         uses: actions/checkout@v3               # Download your latest repository to  machine firstly 
