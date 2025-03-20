@@ -1,5 +1,5 @@
 name: CI Pipeline                  # name of workflow
-                                    # A CI pipeline ensures your code is automatically built and tested whenever you make changes, improving software quality and developer efficiency.
+                                    # A CI pipeline ensures your code is automatically built and tested whenever you make changes, improving software quality and developer efficienc y.
 on:                                   # to trigger automatically to run on main or develop branch 
   push:
     branches:
