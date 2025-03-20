@@ -1,29 +1,32 @@
-name: CI/CD Pipeline                  # name of workflow
-
+name: CI Pipeline                  # name of workflow
+                                    # A CI pipeline ensures your code is automatically built and tested whenever you make changes, improving software quality and developer efficiency.
 on:                                   # to trigger automatically to run on main or develop branch 
   push:
     branches:
       - main
-      - develop
   pull_request:                        # when the Pull Request is open , trigger is on to  the targets are main or develop branch 
     branches:
       - main
-      - develop
 
 jobs:                                              # Defines a list of tasks 
-  ci:                                              # job name 
+  build:                                              # job name 
     runs-on: ubuntu-latest                         # works on ubunto OS
 
     steps:                                          # Inside of steps , ecery line executes a command in CI/CD pipeline 
       - name: Checkout Repository
         uses: actions/checkout@v3                    # Download your latest repository to your machine firstly 
 
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
       - name: Install Dependencies
         run: npm install                             # Install required packages 
 
-      - name: Run Tests
-        run: npm test                                # testing the code 
-
       - name: Build Application
         run: npm run build                           # builds rpoject 
+        
+      - name: Run Tests
+        run: npm test                                # testing the code 
 
