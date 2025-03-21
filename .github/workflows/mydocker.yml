@@ -26,4 +26,4 @@ jobs:
         with:
           context: .   ##build the Docker image from the locaation of dockerfile
           push: true    ## push the built image to Docker Hub.
-          tags: your-dockerhub-username/your-image-name:latest
+          tags: aslihanozhan/repoasli:latest
