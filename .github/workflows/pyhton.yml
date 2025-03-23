@@ -21,15 +21,15 @@ jobs:
 
       - name: Install Dependencies for Phyton
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip  ##updates pyhton package manager to latest version
+          pip install -r requirements.txt    ##install packages in the list 
 
       - name: Run Tests with Pytest
-        run: pytest --junitxml=test_results.xml
+        run: pytest --junitxml=test_results.xml ## pytest will look fro test file and run it , then reposrtes the test result will be written inside of test_result.xml
 
       - name: Upload Test Results
-        if: always()
-        uses: actions/upload-artifact@v4
+        if: always()                ##even if previous step failed, again you will get test report 
+        uses: actions/upload-artifact@v4  ##Github Action uploads file from CI runner to Github 
         with:
           name: python test results
-          path: test_results.xml
+          path: test_results.xml   ##the actual file being uploaded.contains teste result 
