@@ -59,7 +59,7 @@ jobs:
     - name: Deploy to AWS S3   ##My only exist staging server is AWS so that the app file will be transfer into bucket
       uses: jakejarvis/s3-sync-action@v0.5.1
       with:
-        args: --acl public-read --delete
+        args: --delete
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
