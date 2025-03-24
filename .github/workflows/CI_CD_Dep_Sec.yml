@@ -35,6 +35,12 @@ jobs:
     - name: Run tests  ##test part works and result written on tes_result.xml
       run: pytest --junitxml=test_results.xml
 
+ 
+    - name: Creation of missing folder witha file  ##from previous docker,there is no exist dist file but just incase i order to create this forlder
+      run: |
+        mkdir dist
+        echo "Hello from Python deployment!It is Aslihan World" > dist/index.html
+        
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v4 ##test result will taken from workflow to Gıthub UI 
