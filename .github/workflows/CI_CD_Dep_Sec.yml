@@ -23,6 +23,7 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
+        cache: 'pip'  ##Avoids Everytime Github workflow downloading and isnatllaing the same packages in 'requirement' fiile by caching insyallled Pyhton pip packages 
 
    
     - name: Install dependencies  ##Install Phyton exktra packages for automation
@@ -66,12 +67,13 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         SOURCE_DIR: ./dist
 
-    - name: Slack Notification - Deployed to S3  ##When automation is finished, notification will send to me through Slack 
-      uses: slackapi/slack-github-action@v1.24.0
-      with:
-        payload: |
-          {
-            "text": ":cloud: *Deployment to AWS S3 complete!* Your app is live in the S3 bucket `${{ secrets.AWS_BUCKET_NAME }}`."
-          }
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+  ##Beacuse of missing perfmiison for Slack, I have used mail notification for each workflow 
+  ##  - name: Slack Notification - Deployed to S3  ##When automation is finished, notification will send to me through Slack 
+  ##    uses: slackapi/slack-github-action@v1.24.0
+  ##    with:
+  ##      payload: |
+  ##        {
+  ##          "text": ":cloud: *Deployment to AWS S3 complete!* Your app is live in the S3 bucket `${{ secrets.AWS_BUCKET_NAME }}`."
+  ##        }
+  ##    env:
+  ##      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
