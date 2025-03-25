@@ -6,9 +6,9 @@ on:
   pull_request:
     branches: main 
 
-permissions:
-  security-events: write
-  contents: read
+permissions:                   ##This blocks gives some permisssions to GitHub Actions for seucrıty scan(CODEql) what it is allowd during workflow     
+  security-events: write       ##worflow can upload CODEQL result to securt part
+  contents: read               ##workflow can read code from repo
 
 jobs: 
   build-test-deploy:
