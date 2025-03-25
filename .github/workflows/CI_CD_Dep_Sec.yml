@@ -70,19 +70,18 @@ jobs:
     - name: Send Email Notification
       uses: dawidd6/action-send-mail@v3
       with:
-              server_address: smtp.gmail.com
-              server_port: 465
-              username: ${{ secrets.SMTP_USERNAME }}
-              password: ${{ secrets.SMTP_PASSWORD }}
-              subject: GitHub Actions - ${{ job.status }} in ${{ github.repository }}
-              to: ${{ secrets.EMAIL_RECEIVER }}
-              from: GitHub Actions <${{ secrets.SMTP_USERNAME }}>
-              content_type: text/plain
-              body: |
-                    The workflow has completed with status: ${{ job.status }}
-                    Repository: ${{ github.repository }}
-                    Workflow: ${{ github.workflow }}
-                    Commit: ${{ github.sha }}
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: GitHub Actions - ${{ job.status }} in ${{ github.repository }}
+          to: ${{ secrets.EMAIL_RECEIVER }}
+          from: GitHub Actions <${{ secrets.SMTP_USERNAME }}>
+          body: |
+            The workflow has completed with status: ${{ job.status }}
+            Repository: ${{ github.repository }}
+            Workflow: ${{ github.workflow }}
+            Commit: ${{ github.sha }}
 
   ##Beacuse of missing perfmiison for Slack, I have used mail notification for each workflow 
   ##  - name: Slack Notification - Deployed to S3  ##When automation is finished, notification will send to me through Slack 
